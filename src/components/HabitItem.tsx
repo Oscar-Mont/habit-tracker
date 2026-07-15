@@ -25,7 +25,7 @@ export default function HabitItem({ name }: HabitItemProps) {
                 <Button variant="ghost-destructive">Delete</Button>
             </div>
             {/*bottom section*/}
-            <div className="flex gap-1.5">
+            <div className="flex gap-1.5 m-5">
                 {visibleDates.map(date => (
                     <Button key={date.toISOString()} variant="date" disabled={isFuture(date)}>
                         <span className="font-medium">{format(date, "EEE")}</span>

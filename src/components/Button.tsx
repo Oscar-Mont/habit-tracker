@@ -22,7 +22,7 @@ function getVariantStyles(variant: Variant) {
         case "ghost-destructive":
             return "bg-red-600 hover:bg-red-900 hover:text-red-500"
         case "date":
-            return "flex flex-1 flex-col items-center gap-0.5 rounded-lg text-xs hover:bg-zinc-700"
+            return "flex flex-1 flex-col items-center gap-0.5 rounded-xl text-xs border-1 border-white-700 hover:bg-zinc-700"
         default:
             throw new Error(`Invalid Variant: ${variant satisfies never}`)
     }
