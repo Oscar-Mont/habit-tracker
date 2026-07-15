@@ -1,9 +1,29 @@
-interface ButtonProps {
-    text: string
+import type { ReactNode } from "react"
+
+type Variant = "primary" | "secondary" | "ghost-destructive" | "date"
+type ButtonProps = {
+    children: ReactNode,
+    disabled?: boolean,
+    variant?: Variant
 }
 
-export default function Button({ text }: ButtonProps) {
+export default function Button({ children, disabled = false, variant = "primary" }: ButtonProps) {
     return (
-        <button className="bg-purple-700 px-2 py-1 rounded-sm hover:bg-purple-500 disabled:opacity-30 disabled:cursor-not-allowed">{text}</button>
+        <button disabled={disabled} className={`${getVariantStyles(variant)} p-2 rounded-sm disabled:opacity-30 disabled:cursor-not-allowed`}>{children}</button>
     )
+}
+
+function getVariantStyles(variant: Variant) {
+    switch (variant) {
+        case "primary":
+            return "bg-violet-600 hover:bg-violet-500"
+        case "secondary":
+            return "bg-zinc-700 hover:bg-zinc-600 text-zinc-400"
+        case "ghost-destructive":
+            return "bg-red-600 hover:bg-red-900 hover:text-red-500"
+        case "date":
+            return "flex flex-1 flex-col items-center gap-0.5 rounded-lg text-xs hover:bg-zinc-700"
+        default:
+            throw new Error(`Invalid Variant: ${variant satisfies never}`)
+    }
 }

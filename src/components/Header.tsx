@@ -11,8 +11,8 @@ export default function Header() {
             <div className="flex flex-col gap-1 items-end">
                 <span>Apr 6 - Apr 10</span>
                 <div className="flex items-center gap-3">
-                    <Button text="Previous" ></Button>
-                    <Button text="Next"></Button>
+                    <Button >Previous</Button>
+                    <Button >Next</Button>
                 </div>
             </div>
         </header>
