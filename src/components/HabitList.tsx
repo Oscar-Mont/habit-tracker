@@ -1,27 +1,21 @@
 // import Button from "./Button";
 import HabitItem from "./HabitItem"
+import { useHabits } from "../context/HabitProvider"
 
-export type Habit = {
-    id: string,
-    name: string,
-    completions: Date[]
-}
 
-type HabitListProps = {
-    habits: Habit[];
-    deleteHabit: (id: string) => void,
-    toggleHabit: (id: string, date: Date) => void
-}
+// type HabitListProps = {
+//     habits: Habit[];
+// }
 
-export default function HabitList({ habits, deleteHabit, toggleHabit }: HabitListProps) {
-
+export default function HabitList() {
+    const { habits } = useHabits()
     if (habits.length === 0) {
         return <p>No Habits yet.</p>
     }
     return (
         <div className="flex flex-col gap-3">
             {habits.map(habit => (
-                <HabitItem key={habit.id} habit={habit} deleteHabit={deleteHabit} toggleHabit={toggleHabit}></HabitItem>))}
+                <HabitItem key={habit.id} habit={habit} ></HabitItem>))}
         </div>
     )
 }

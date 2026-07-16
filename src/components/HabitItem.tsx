@@ -1,14 +1,15 @@
-import type { Habit } from "./HabitList"
+import type { Habit } from "../context/HabitProvider"
 import Button from "./Button"
 import { endOfWeek, startOfWeek, eachDayOfInterval, format, isFuture, isSameDay } from "date-fns"
+import { useHabits } from "../context/HabitProvider"
 
 interface HabitItemProps {
-    habit: Habit,
-    deleteHabit: (id: string) => void,
-    toggleHabit: (id: string, date: Date) => void
+    habit: Habit
 }
 
-export default function HabitItem({ habit, deleteHabit, toggleHabit }: HabitItemProps) {
+export default function HabitItem({ habit }: HabitItemProps) {
+    const { deleteHabit, toggleHabit } = useHabits()
+
     const visibleDates = eachDayOfInterval({
         start: startOfWeek(new Date()),
         end: endOfWeek(new Date())
