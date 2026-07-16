@@ -1,14 +1,13 @@
-
-
+import type { Habit } from "./HabitList"
 import Button from "./Button"
 import { endOfWeek, startOfWeek, eachDayOfInterval, format, isFuture } from "date-fns"
 
 interface HabitItemProps {
-    // key: string,
-    name: string
+    habit: Habit,
+    deleteHabit: (id: string) => void
 }
 
-export default function HabitItem({ name }: HabitItemProps) {
+export default function HabitItem({ habit, deleteHabit }: HabitItemProps) {
     const visibleDates = eachDayOfInterval({
         start: startOfWeek(new Date()),
         end: endOfWeek(new Date())
@@ -19,10 +18,10 @@ export default function HabitItem({ name }: HabitItemProps) {
             {/*top section*/}
             <div className="flex items-center justify-between ">
                 <div className="flex gap-3 items-center">
-                    <span className="font-medium">{name}</span>
-                    <span className="text-sm text-amber-400">3</span>
+                    <span className="font-medium">{habit.name}</span>
+                    <span className="text-sm text-amber-400">3 days streak</span>
                 </div>
-                <Button variant="ghost-destructive">Delete</Button>
+                <Button onClick={() => deleteHabit(habit.id)} variant="ghost-destructive">Delete</Button>
             </div>
             {/*bottom section*/}
             <div className="flex gap-1.5 m-5">

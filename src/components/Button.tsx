@@ -4,12 +4,13 @@ type Variant = "primary" | "secondary" | "ghost-destructive" | "date"
 type ButtonProps = {
     children: ReactNode,
     disabled?: boolean,
-    variant?: Variant
+    variant?: Variant,
+    onClick?: () => void
 }
 
-export default function Button({ children, disabled = false, variant = "primary" }: ButtonProps) {
+export default function Button({ children, disabled = false, variant = "primary", onClick }: ButtonProps) {
     return (
-        <button disabled={disabled} className={`${getVariantStyles(variant)} p-2 rounded-sm disabled:opacity-30 disabled:cursor-not-allowed`}>{children}</button>
+        <button disabled={disabled} onClick={onClick} className={`${getVariantStyles(variant)} p-2 rounded-sm disabled:opacity-30 disabled:cursor-not-allowed`}>{children}</button>
     )
 }
 
