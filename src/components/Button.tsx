@@ -25,7 +25,7 @@ function getVariantStyles(variant: Variant) {
         case "date":
             return "flex flex-1 flex-col items-center gap-0.5 rounded-xl text-xs border-1 border-white-700 hover:bg-zinc-700"
         case "date-success":
-            return "flex flex-1 flex-col items-center gap-0.5 rounded-xl text-xs border-1 bg-green-500 border-green-700 hover:bg-green-300"
+            return "flex flex-1 flex-col items-center gap-0.5 rounded-xl text-xs border-1 bg-violet-500 border-green-700 hover:bg-violet-300"
         default:
             throw new Error(`Invalid Variant: ${variant satisfies never}`)
     }

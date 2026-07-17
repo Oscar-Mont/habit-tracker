@@ -4,16 +4,15 @@ import { endOfWeek, startOfWeek, eachDayOfInterval, format, isFuture, isSameDay 
 import { useHabits } from "../context/HabitProvider"
 
 interface HabitItemProps {
-    habit: Habit
+    habit: Habit,
+    visibleDates: Date[]
 }
 
-export default function HabitItem({ habit }: HabitItemProps) {
+export default function HabitItem({ habit, visibleDates }: HabitItemProps) {
     const { deleteHabit, toggleHabit } = useHabits()
 
-    const visibleDates = eachDayOfInterval({
-        start: startOfWeek(new Date()),
-        end: endOfWeek(new Date())
-    })
+    // const streak = getStreak(habit.completions)
+
     return (
 
         <div className="rounded-xl bg-zinc-800 p-4 flex-col gap-3">
@@ -21,7 +20,7 @@ export default function HabitItem({ habit }: HabitItemProps) {
             <div className="flex items-center justify-between ">
                 <div className="flex gap-3 items-center">
                     <span className="font-medium">{habit.name}</span>
-                    <span className="text-sm text-amber-400">3 days streak</span>
+                    {/* <span className="text-sm text-amber-400">3 days streak</span> */}
                 </div>
                 <Button onClick={() => deleteHabit(habit.id)} variant="ghost-destructive">Delete</Button>
             </div>
