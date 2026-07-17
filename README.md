@@ -1,5 +1,13 @@
-# Habit Tracker
-This project is part of the process I am using for learning React. It was made by following
+# About Habit Tracker
+
+This is a simple SPA built with React and Vite that allows users to:
+* Create Habits.
+* Delete Habits.
+* Track their adherence to their habits in a weekly manner.
+
+
+# A note of Honesty
+I am learning React! And I am using Youtube tutorials to help. This project was made by following
 a Web Dev Simplified's tutorial on Youtube.
 
 ## Topics Covered
@@ -12,3 +20,5 @@ a Web Dev Simplified's tutorial on Youtube.
 * The Context API
 * Tailwind CSS
 * Hooks
+
+
